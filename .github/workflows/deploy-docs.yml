@@ -20,7 +20,7 @@ jobs:
       - run: npm ci
 
       - run: npm run build
-        end:
+        env:
           TURBO_TOKEN: S8NFn08V5QJBZEJR5WzMGNR4
           TURBO_TEAM: danielfariias
 
