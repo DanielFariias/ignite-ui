@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
-import { Textarea, ITextareaProps, Box, Text } from '@ignite-ui/react'
+import { Textarea, ITextareaProps, Box, Text } from '@my-ignite-uii/react'
 
 export default {
   title: 'Form/Textarea',
