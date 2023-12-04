@@ -3,10 +3,11 @@ import { StoryObj, Meta } from '@storybook/react'
 import { Tooltip, ITooltipProps, Box, Text } from '@my-ignite-uii/react'
 
 export default {
-  title: 'Data display/Tooltip',
+  title: 'Others/Tooltip',
   component: Tooltip,
   args: {
-    children: <span>Tooltip</span>,
+    children: <Text>Passe o mouse em cima para ver o tooltip</Text>,
+    message: 'Mensagem do tooltip',
   },
   argTypes: {
     children: {
@@ -27,12 +28,7 @@ export default {
             justifyContent: 'center',
           }}
         >
-          {Story({
-            args: {
-              children: <Text>Passe o mouse em cima para ver o tooltip</Text>,
-              message: 'Mensagem do tooltip',
-            },
-          })}
+          {Story()}
         </Box>
       )
     },
