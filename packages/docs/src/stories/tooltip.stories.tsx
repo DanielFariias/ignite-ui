@@ -6,8 +6,8 @@ export default {
   title: 'Others/Tooltip',
   component: Tooltip,
   args: {
-    children: <Text>Passe o mouse em cima para ver o tooltip</Text>,
-    message: 'Mensagem do tooltip',
+    children: <Text>Hover me</Text>,
+    message: 'This is a tooltip',
   },
   argTypes: {
     children: {

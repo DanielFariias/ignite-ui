@@ -1,33 +1,27 @@
 import React, { ComponentProps } from 'react'
-import * as T from '@radix-ui/react-toast'
+import * as ToastRadix from '@radix-ui/react-toast'
 
 import * as S from './styles'
 import { X } from 'phosphor-react'
-import { Button } from '../button'
 
-export type IToastProps = ComponentProps<typeof S.Container> & {
-  message?: string
+export type IToastProps = ComponentProps<typeof S.ToastRoot> & {
+  title: string
+  description?: string
 }
 
-export function Toast(props: IToastProps) {
-  const [open, setOpen] = React.useState(false)
-
+export function Toast({ title, description, ...props }: IToastProps) {
   return (
-    <T.Provider>
-      <Button onClick={() => setOpen(true)}>Open toast</Button>
-      {/* <S.ToastRoot defaultOpen open={open} onOpenChange={setOpen}> */}
-      <S.ToastRoot open={open} onOpenChange={() => setOpen(false)}>
-        <S.ToastTitle>Agendamento realizado</S.ToastTitle>
-        <S.ToastDescription>
-          Quarta-feira, 23 de Outubro às 16h
-        </S.ToastDescription>
+    <ToastRadix.Provider>
+      <S.ToastRoot {...props}>
+        <S.ToastTitle>{title}</S.ToastTitle>
+        {description && <S.ToastDescription>{description}</S.ToastDescription>}
         <S.ToastClose>
-          <X size={20} />
+          <X size={20} weight="light" />
         </S.ToastClose>
       </S.ToastRoot>
 
       <S.ToastViewport />
-    </T.Provider>
+    </ToastRadix.Provider>
   )
 }
 

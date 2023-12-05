@@ -1,26 +1,26 @@
-import { ComponentProps } from 'react'
-import * as T from '@radix-ui/react-tooltip'
+import { ComponentProps, ReactNode } from 'react'
+import * as TooltipRadix from '@radix-ui/react-tooltip'
 
 import * as S from './styles'
 
 export type ITooltipProps = ComponentProps<typeof S.Container> & {
-  message?: string
+  message: string | ReactNode
 }
 
-export function Tooltip(props: ITooltipProps) {
+export function Tooltip({ children, message, ...props }: ITooltipProps) {
   return (
-    <T.Provider>
-      <S.Container>
-        <T.Trigger asChild>{props.children}</T.Trigger>
+    <TooltipRadix.Provider>
+      <S.Container {...props}>
+        <TooltipRadix.Trigger asChild>{children}</TooltipRadix.Trigger>
 
-        <T.Portal>
+        <TooltipRadix.Portal>
           <S.Content>
-            <S.Message size={'sm'}>{props.message}</S.Message>
-            <T.Arrow />
+            <S.Message size={'sm'}>{message}</S.Message>
+            <S.Arrow />
           </S.Content>
-        </T.Portal>
+        </TooltipRadix.Portal>
       </S.Container>
-    </T.Provider>
+    </TooltipRadix.Provider>
   )
 }
 
